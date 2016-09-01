@@ -1,6 +1,5 @@
 #pragma once
 #include "precision.h"
-#include <cstdint>
 #include <irrlicht.h>
 
 using namespace irr;

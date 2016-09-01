@@ -1,5 +1,4 @@
 #include <irrlicht.h>
-#include "DreamsOfMagnus/Vector3.h"
 #include "DreamsOfMagnus/Object.h"
 #include "DreamsOfMagnus/Collisions.h"
 #include <stdio.h>
@@ -17,10 +16,14 @@ using namespace DreamObjects;
 #pragma comment(lib, "Irrlicht.lib")
 
 int main(int argc, char* argv[]) {
-	RectangleCollider c1 = RectangleCollider(Transform(0, 0), 1);
-	CircleCollider c2 = CircleCollider(Transform(1.5f, 1.5f), 1.0f);
+	RectangleCollider c1 = RectangleCollider(0, 0, 1);
+	CircleCollider c2 = CircleCollider(1, 1, 1);
 	vector2d<real> collisionDirection = c1.collisionDirectionNormalized(c2);
 	printf("%d %f %f\n", c1.isColliding(c2), collisionDirection.X, collisionDirection.Y);
+
+	GameObject obj1 = GameObject(0, 0, 45);
+
+	printf("%f\n", obj1.transform.rotation);
 	return 0;
 
 }

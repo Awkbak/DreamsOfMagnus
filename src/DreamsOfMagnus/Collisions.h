@@ -22,13 +22,13 @@ namespace DreamsOfMagnus {
 		public:
 			//What kind of collider is this?
 			ColliderType colliderType;
-			Transform transform;
+			Transform* transform;
 
 		public:
 			/*
 			* Constructors
 			*/
-			Collider(ColliderType colliderType, Transform transform) : colliderType(colliderType), transform(transform) {}
+			Collider(ColliderType colliderType, Transform* transform) : colliderType(colliderType), transform(transform) {}
 
 			/*
 			* Collision Detection
@@ -56,8 +56,10 @@ namespace DreamsOfMagnus {
 			/*
 			* Constructors
 			*/
-			CircleCollider() : radius(1), Collider(circleCollider, Transform()) {}
-			CircleCollider(const Transform transform, const real radius) : radius(radius), Collider(circleCollider, transform) {}
+			CircleCollider() : radius(1), Collider(circleCollider, &Transform()) {}
+			CircleCollider(Transform* transform, real radius) : radius(radius), Collider(circleCollider, transform) {}
+			CircleCollider(real x, real y) : radius(1), Collider(circleCollider, &Transform(x, y)) {}
+			CircleCollider(real x, real y, real radius) : radius(radius), Collider(circleCollider, &Transform(x, y)) {}
 
 			/*
 			* Collision Detection
@@ -91,9 +93,11 @@ namespace DreamsOfMagnus {
 			/*
 			* Constructors
 			*/
-			RectangleCollider() : width(1), halfWidth(0.5f), height(1), halfHeight(0.5f), Collider(rectangleCollider, Transform()) {}
-			RectangleCollider(const Transform transform, const real squareLength) : width(squareLength), halfWidth(squareLength / 2.0f), height(squareLength), halfHeight(squareLength / 2.0f), Collider(rectangleCollider, transform) {}
-			RectangleCollider(const Transform transform, const real width, const real height) : width(width), halfWidth(width / 2.0f), height(height), halfHeight(height / 2.0f), Collider(rectangleCollider, transform) {}
+			RectangleCollider() : width(1), halfWidth(0.5f), height(1), halfHeight(0.5f), Collider(rectangleCollider, &Transform()) {}
+			RectangleCollider(Transform* transform, real squareLength) : width(squareLength), halfWidth(squareLength / 2.0f), height(squareLength), halfHeight(squareLength / 2.0f), Collider(rectangleCollider, transform) {}
+			RectangleCollider(Transform* transform, real width, real height, real) : width(width), halfWidth(width / 2.0f), height(height), halfHeight(height / 2.0f), Collider(rectangleCollider, transform) {}
+			RectangleCollider(real x, real y, real squareLength) : width(squareLength), halfWidth(squareLength / 2.0f), height(squareLength), halfHeight(squareLength / 2.0f), Collider(rectangleCollider, &Transform(x, y)) {}
+			RectangleCollider(real x, real y, real width, real height) : width(width), halfWidth(width / 2.0f), height(height), halfHeight(height / 2.0f), Collider(rectangleCollider, &Transform(x, y)) {}
 
 			/*
 			* Collision Detection

@@ -1,6 +1,6 @@
 #pragma once
-#include "Vector2.h"
 #include "precision.h"
+#include "Transform.h"
 #include <cstdint>
 #include <irrlicht.h>
 
@@ -41,9 +41,7 @@ namespace DreamsOfMagnus {
 
 		class GameObject : public Object {
 		public:
-			vector2d<real> position;
-			real rotation;
-			vector2d<real> scale;
+			Transform transform;
 
 		private:
 
@@ -52,18 +50,18 @@ namespace DreamsOfMagnus {
 			 * Constructors for the GameObject
 			 */
 
-			GameObject() : position(vector2d<real>()), rotation(0), scale(vector2d<real>()) {}
-			GameObject(const vector2d<real> position) : position(position), rotation(0), scale(vector2d<real>()){}
-			GameObject(const vector2d<real> position, const real rotation) : position(position), rotation(rotation), scale(vector2d<real>()) {}
-			GameObject(const vector2d<real> position, const real rotation, const vector2d<real> scale) : position(position), rotation(rotation), scale(scale) {}
+			GameObject() : transform(Transform()) {}
+			GameObject(const vector2d<real> position) : transform(Transform(position)) {}
+			GameObject(const vector2d<real> position, real rotation) : transform(Transform(position, rotation)) {}
+			GameObject(const vector2d<real> position, real rotation, const vector2d<real> scale) : transform(Transform(position, rotation, scale)) {}
 
-			GameObject(const real x, const real y) : position(vector2d<real>(x, y)), rotation(0), scale(vector2d<real>()) {}
+			GameObject(real x, real y) : transform(Transform(x, y)) {}
 
-			GameObject(const real x, const real y, const real rotation) : position(vector2d<real>(x, y)), rotation(rotation), scale(vector2d<real>()) {}
+			GameObject(real x, real y, real rotation) : transform(Transform(x, y, rotation)) {}
 
-			GameObject(const real x, const real y, const real rotation, const vector2d<real> scale) : position(vector2d<real>(x, y)), rotation(rotation), scale(scale) {}
+			GameObject(real x, real y, real rotation, vector2d<real> scale) : transform(Transform(x, y, rotation, scale)) {}
 
-			GameObject(const real x, const real y, const real rotation, const real scaleX, const real scaleY) : position(vector2d<real>(x, y)), rotation(rotation), scale(vector2d<real>(scaleX, scaleY)) {}
+			GameObject(real x, real y, real rotation, real scaleX, real scaleY) : transform(Transform(x, y, rotation, scaleX, scaleY)) {}
 
 		private:
 			

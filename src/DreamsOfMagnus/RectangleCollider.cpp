@@ -9,14 +9,14 @@ namespace DreamsOfMagnus {
 		*/
 		bool RectangleCollider::isColliding(const Collider& other) {
 			if (other.colliderType == circleCollider) {
-				CircleCollider otherCol = (CircleCollider&)other;
-				vector2d<real> direction = (otherCol.transform.position - transform.position).normalize();
+				CircleCollider otherCol = dynamic_cast<const CircleCollider&>(other);
+				vector2d<real> direction = (otherCol.transform->position - transform->position).normalize();
 				return insideCollider(direction * otherCol.radius);
 			}
 			else if (other.colliderType == rectangleCollider) {
 				RectangleCollider otherCol = (RectangleCollider&)other;
-				real xDisPos = otherCol.transform.position.X - transform.position.X;
-				real yDisPos = otherCol.transform.position.Y - transform.position.Y;
+				real xDisPos = otherCol.transform->position.X - transform->position.X;
+				real yDisPos = otherCol.transform->position.Y - transform->position.Y;
 				if (signbit(xDisPos)) {
 					xDisPos = -xDisPos;
 					yDisPos = -yDisPos;
@@ -34,16 +34,16 @@ namespace DreamsOfMagnus {
 		}
 
 		vector2d<real> RectangleCollider::collisionDirection(const Collider& other) {
-			return other.transform.position - transform.position;
+			return other.transform->position - transform->position;
 		}
 
 		vector2d<real> RectangleCollider::collisionDirectionNormalized(const Collider& other) {
-			return (other.transform.position - transform.position).normalize();
+			return (other.transform->position - transform->position).normalize();
 		}
 
 		bool RectangleCollider::insideCollider(const vector2d<real> other) {
-			real xDisPos = other.X - transform.position.X;
-			real yDisPos = other.Y - transform.position.Y;
+			real xDisPos = other.X - transform->position.X;
+			real yDisPos = other.Y - transform->position.Y;
 			if (signbit(xDisPos)) {
 				xDisPos = -xDisPos;
 				yDisPos = -yDisPos;

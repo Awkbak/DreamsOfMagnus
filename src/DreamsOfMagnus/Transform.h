@@ -1,5 +1,4 @@
 #pragma once
-#include "Vector2.h"
 #include "precision.h"
 #include <cstdint>
 #include <irrlicht.h>

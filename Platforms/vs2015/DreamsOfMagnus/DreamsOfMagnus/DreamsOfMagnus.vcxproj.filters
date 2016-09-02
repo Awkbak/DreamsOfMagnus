@@ -47,5 +47,8 @@
     <ClInclude Include="..\..\..\..\src\DreamsOfMagnus\Collisions.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\..\src\DreamsOfMagnus\PhysicsObject.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

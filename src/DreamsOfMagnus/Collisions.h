@@ -2,6 +2,7 @@
 #include "precision.h"
 #include <irrlicht.h>
 #include "Transform.h"
+#include "Object.h"
 
 using namespace irr;
 using namespace core;
@@ -13,7 +14,8 @@ using namespace gui;
 namespace DreamsOfMagnus {
 	namespace DreamObjects {
 
-		class Collider {
+
+		class Collider : public DreamObjects::Object {
 		protected:
 			enum ColliderType { genericCollider, circleCollider, rectangleCollider };
 

@@ -162,6 +162,7 @@
     <ClInclude Include="..\..\..\..\src\DreamsOfMagnus\Collisions.h" />
     <ClInclude Include="..\..\..\..\src\DreamsOfMagnus\core.h" />
     <ClInclude Include="..\..\..\..\src\DreamsOfMagnus\Object.h" />
+    <ClInclude Include="..\..\..\..\src\DreamsOfMagnus\PhysicsObject.h" />
     <ClInclude Include="..\..\..\..\src\DreamsOfMagnus\precision.h" />
     <ClInclude Include="..\..\..\..\src\DreamsOfMagnus\Transform.h" />
     <ClInclude Include="..\..\..\..\src\DreamsOfMagnus\Vector2.h" />

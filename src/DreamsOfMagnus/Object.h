@@ -16,6 +16,19 @@ namespace DreamsOfMagnus {
 	namespace DreamObjects {
 		static volatile uint32_t objectCounter = 0;
 
+
+		class Component {
+		public:
+
+		private:
+
+		public:
+
+		private:
+			virtual void stub() = 0;
+
+		};
+
 		class Object {
 		public:
 			const uint32_t objectID;
@@ -42,6 +55,7 @@ namespace DreamsOfMagnus {
 		class GameObject : public Object {
 		public:
 			Transform transform;
+			//List<Component> components
 
 		private:
 
@@ -62,6 +76,15 @@ namespace DreamsOfMagnus {
 			GameObject(real x, real y, real rotation, vector2d<real> scale) : transform(Transform(x, y, rotation, scale)) {}
 
 			GameObject(real x, real y, real rotation, real scaleX, real scaleY) : transform(Transform(x, y, rotation, scaleX, scaleY)) {}
+
+
+			/*
+			 * Normal Functions
+			 */
+			//void addComponent(Component component);
+			//Component getComponent(type);
+			//const List<Component> getAllComponents();
+			//const List<Component> getComponents(type);
 
 		private:
 			
